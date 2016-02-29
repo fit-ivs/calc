@@ -27,5 +27,4 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 
 ## Požadavky na program
 - rozdělení programu na matematickou knihovnu a GUI
-- základní matematické operacem (+, -, *, /), faktoriál, mocniny s přirozenými exponenty a jedna funkce navíc (třeba tetrace? :) )
-- 
+- základní matematické operace (+, -, \*, /), faktoriál, mocniny s přirozenými exponenty a jedna funkce navíc (třeba tetrace? :) )
