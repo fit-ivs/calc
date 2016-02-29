@@ -1,8 +1,7 @@
 # Kalkulačka
 FIT VUT 2016, předmět IVS, projekt č. 2
 
-- kód: [zde](https://github.com/fit-ivs/calc)
-- web: [fit-ivs.github.io](http://fit-ivs.github.io) (TODO)
+- web: [fit-ivs.github.io](http://fit-ivs.github.io) (prozatím automaticky generovaný)
 - plán práce: ? (TODO: Trello+Gantt-chart.com vs github issues/milestones)
 
 ## Důležité termíny
