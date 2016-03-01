@@ -7,6 +7,8 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 ## Důležité termíny
 - **15. 3.** - registrace týmů
 - **22. 3.** - odevzdání plánu projektu
+- **3. 4.** - deadline pro program
+- **10. 4.** - deadline pro dokumentaci
 - **25. 4.** - odevzdání projektu (vedoucí odevzdává zip)
 - **25. - 29. 4.** - registrace obhajob ve WISu
 - **1. 5.** - odevzdání individuálního hodnocení projektu
