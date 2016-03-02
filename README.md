@@ -1,9 +1,6 @@
 # Kalkulačka
 FIT VUT 2016, předmět IVS, projekt č. 2
 
-- web: [fit-ivs.github.io](http://fit-ivs.github.io) (prozatím automaticky generovaný)
-- plán práce: [Trac](https://trac.zarybnicky.com)
-
 ## Důležité termíny
 - **15. 3.** - registrace týmů
 - **22. 3.** - odevzdání plánu projektu
@@ -29,3 +26,10 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 ## Požadavky na program
 - rozdělení programu na matematickou knihovnu a GUI
 - základní matematické operace (+, -, \*, /), faktoriál, mocniny s přirozenými exponenty a jedna funkce navíc (třeba tetrace? :) )
+
+## Používané nástroje
+- [Haskell](https://www.haskell.org/) (+ [Emacs](https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md) nebo [EclipseFP](https://eclipsefp.github.io/))
+- [Stack](http://docs.haskellstack.org/en/stable/README/)
+- [Github](https://github.com/) ([web](https://fit-ivs.github.io), [repozitář](https://github.com/fit-ivs/calc))
+- [Trac](https://trac.edgewall.org/) ([projektový](https://trac.zarybnicky.com))
+- [Travis](https://travis-ci.org) (TODO!)
