@@ -30,6 +30,7 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 ## Používané nástroje
 - [Haskell](https://www.haskell.org/) (+ [Emacs](https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md) nebo [EclipseFP](https://eclipsefp.github.io/))
 - [Stack](http://docs.haskellstack.org/en/stable/README/)
+- [Haddock](https://wiki.haskell.org/Haddock)
+- [Tasty](http://documentup.com/feuerbach/tasty) + [Travis](https://travis-ci.org) (TODO!)
 - [Github](https://github.com/) ([web](https://fit-ivs.github.io), [repozitář](https://github.com/fit-ivs/calc))
 - [Trac](https://trac.edgewall.org/) ([projektový](https://trac.zarybnicky.com))
-- [Travis](https://travis-ci.org) (TODO!)
