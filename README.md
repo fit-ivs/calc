@@ -2,7 +2,7 @@
 FIT VUT 2016, předmět IVS, projekt č. 2
 
 - web: [fit-ivs.github.io](http://fit-ivs.github.io) (prozatím automaticky generovaný)
-- plán práce: ? (TODO: Trello+Gantt-chart.com vs github issues/milestones)
+- plán práce: [Trac](https://trac.zarybnicky.com)
 
 ## Důležité termíny
 - **15. 3.** - registrace týmů
