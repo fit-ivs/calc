@@ -29,17 +29,31 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 - dvě možnosti instalace - pomocí (od)instalátoru (Inno, apt-get), nebo ze zdrojů ([ukázka](http://xmonad.org/intro.html))
 
 ## Instalace
-TODO
+```
+stack build
+stack exec calc-exe
+```
 
 ## Vývoj
+TODO - Inno/.deb distribution
+```
+stack test
+```
+
 ### Debugování
 TODO - postup ([info](https://wiki.haskell.org/Debugging))
 
 ### Profilování
 TODO - postup ([wiki](https://wiki.haskell.org/Performance), [prof2dot](https://hackage.haskell.org/package/prof2dot), [Vacuum](https://thoughtpolice.github.io/vacuum/))
+```
+stack bench
+```
 
 ### Generování dokumentace
 TODO - postup (Haddock, [graphmod](https://hackage.haskell.org/package/graphmod), [hs2dot](https://hackage.haskell.org/package/hs2dot), [SourceGraph](https://hackage.haskell.org/package/SourceGraph), [graphtype](https://hackage.haskell.org/package/graphtype))
+```
+stack haddock
+```
 
 ## Používané nástroje
 - [Haskell](https://www.haskell.org/) (+ [Emacs](https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md) nebo [EclipseFP](https://eclipsefp.github.io/))
