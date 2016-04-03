@@ -46,7 +46,7 @@ operators =
   ]
 
 signedFloat :: Parser Double
-signedFloat = L.signed sc (L.lexeme sc L.float)
+signedFloat = L.signed sc $ either fromIntegral id <$> L.lexeme sc L.number
 
 term :: Parser (Expr Double)
 term = parens expr <|> Number <$> signedFloat
