@@ -77,8 +77,21 @@ parse :: String -> Either ParseError (Expr Double)
 parse = runParser expr ""
 
 
-evaluate :: Num a => Expr a -> a
-evaluate = undefined
+evaluate :: Num a => Expr a -> Maybe a
+evaluate (Negate x) = Just (negate (evaluate x))
+evaluate (Number x) = Just x
+evaluate (Divide x y)  = let x' = (evaluate x)
+                             y' = (evaluate y)
+                      in
+                         if y' == 0 then Nothing
+                                    else Just (x' / y')
+evaluate (Subtract x y)  = Just ((evaluate x) - (evaluate y))
+evaluate (Multiply x y)  = Just ((evaluate x) * (evaluate y))
+evaluate (Add x y)  = Just ((evaluate x) + (evaluate y))
+evaluate (Modulus x y)  = Just ((evaluate x) `mod` (evaluate y))
+evaluate (Exp x y)  = Just ((evaluate x) ^ (evaluate y))
+evaluate (Logarithm x y)  = Just (logBase (evaluate x) (evaluate y))
+evaluate (Factorial x)  = Just (product [1..(evaluate x)])
 
 
 -- | Increment one 'Num' value.
