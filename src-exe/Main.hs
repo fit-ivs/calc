@@ -1,4 +1,4 @@
-import Lib (inc)
+import Lib ()
 
 main :: IO ()
-main = print . inc $ (41 :: Int)
+main = putStrLn "Hello World!"
