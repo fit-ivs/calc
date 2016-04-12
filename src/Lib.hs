@@ -1,11 +1,8 @@
 -- | Example of a library file. It is also used for testing the test suites.
 module Lib
-  (
-    -- * Exported functions
-    inc
-  , parse
+  ( parse
   , evaluate
-  , Expr()
+  , Expr
   ) where
 
 import Control.Monad (void)
@@ -14,6 +11,7 @@ import Text.Megaparsec hiding (parse)
 import Text.Megaparsec.Expr (Operator(Prefix, InfixL, Postfix), makeExprParser)
 import Text.Megaparsec.String (Parser)
 import qualified Text.Megaparsec.Lexer as L
+import Data.Fixed (mod')
 
 data Expr a =
       Number a
@@ -77,37 +75,22 @@ parse :: String -> Either ParseError (Expr Double)
 parse = runParser expr ""
 
 
-evaluate :: Num a => Expr a -> Maybe a
-evaluate (Negate x) = Just (negate (evaluate x))
-evaluate (Number x) = Just x
-evaluate (Divide x y)  = let x' = (evaluate x)
-                             y' = (evaluate y)
-                      in
-                         if y' == 0 then Nothing
-                                    else Just (x' / y')
-evaluate (Subtract x y)  = Just ((evaluate x) - (evaluate y))
-evaluate (Multiply x y)  = Just ((evaluate x) * (evaluate y))
-evaluate (Add x y)  = Just ((evaluate x) + (evaluate y))
-evaluate (Modulus x y)  = Just ((evaluate x) `mod` (evaluate y))
-evaluate (Exp x y)  = Just ((evaluate x) ^ (evaluate y))
-evaluate (Logarithm x y)  = Just (logBase (evaluate x) (evaluate y))
-evaluate (Factorial x)  = Just (product [1..(evaluate x)])
-
-
--- | Increment one 'Num' value.
---
---  >>> let answer = 42 :: Int
---  >>> let prev = answer - 1
---  >>> inc prev
---  42
---  >>> succ . Prelude.last . Prelude.take prev . iterate inc $ 1
---  42
---
---  Properties:
---
---  prop> succ x == inc x
---  prop> inc (negate x) == negate (pred x)
---
-inc :: Num a => a -- ^ value to increment
-             -> a -- ^ result
-inc x = x + 1
+evaluate :: RealFloat a => Expr a -> Maybe a
+evaluate (Number x)      = Just x
+evaluate (Negate x)      = negate <$> evaluate x
+evaluate (Add x y)       = (+) <$> evaluate x <*> evaluate y
+evaluate (Subtract x y)  = (-) <$> evaluate x <*> evaluate y
+evaluate (Multiply x y)  = (*) <$> evaluate x <*> evaluate y
+evaluate (Exp x y)       = (**) <$> evaluate x <*> evaluate y
+evaluate (Logarithm x y) = logBase <$> evaluate x <*> evaluate y
+evaluate (Modulus x y)   = mod' <$> evaluate x <*> evaluate y
+evaluate (Divide x y) = do
+    x' <- evaluate x
+    y' <- evaluate y
+    if y' == 0 then Nothing else Just (x' / y')
+evaluate (Factorial x) = do
+    x' <- evaluate x
+    -- If x' approximates an integer
+    if x' == fromInteger (round x')
+        then Just $ fromInteger $ product [1..(round x' :: Integer)]
+        else Nothing
