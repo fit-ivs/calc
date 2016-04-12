@@ -39,6 +39,7 @@ executable calc-exe
   main-is:           Main.hs
   build-depends:     base >= 4.8 && < 5
                    , calc
+                   , gtk
 
 test-suite calc-test
   type:              exitcode-stdio-1.0
