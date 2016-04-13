@@ -1,6 +1,8 @@
 # Kalkulačka
 FIT VUT 2016, předmět IVS, projekt č. 2
 
+[![Build Status](https://travis-ci.org/fit-ivs/calc.svg?branch=master)](https://travis-ci.org/fit-ivs/calc)
+
 ## Důležité termíny
 - **15. 3.** - registrace týmů
 - **22. 3.** - odevzdání plánu projektu
@@ -11,7 +13,7 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 - **1. 5.** - odevzdání individuálního hodnocení projektu
 
 ## Výstupy
-- [ ] repozitář včetně historie (commity minimálně každý večer!, pozor na přepisování práce ostatních, rebase vždy před push)
+- [x] repozitář včetně historie (commity minimálně každý večer!, pozor na přepisování práce ostatních, rebase vždy před push)
 - [ ] Makefile (pack, clean, test, doc, [all])
 - [ ] instalátor a odinstalátor
 - [ ] uživatelská příručka v PDF
@@ -29,9 +31,34 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 - dvě možnosti instalace - pomocí (od)instalátoru (Inno, apt-get), nebo ze zdrojů ([ukázka](http://xmonad.org/intro.html))
 
 ## Instalace
+
+### Stack
+Vice info na [haskellstack.org](http://docs.haskellstack.org/en/stable/install_and_upgrade/).
+
+### GTK+
+#### Windows
+Vyžaduje **aktuální** [MSYS2](http://msys2.github.io)
 ```
-stack build
-stack exec calc-exe
+pacman -Sy
+pacman -S mingw-w64-x86_64-pkg-config mingw-w64-x86_64-gtk2
+```
+
+#### Unix
+```
+sudo apt-get install libgtk2.0-dev libgtk-3-dev
+```
+
+### Program samotný
+Pro Unix
+```
+stack setup
+stack install
+```
+Pro Windows:
+v MinGW64\_shell (NE v msys2_shell)
+```
+stack setup
+stack --skip-msys install
 ```
 
 ## Vývoj
@@ -56,9 +83,9 @@ stack haddock
 ```
 
 ## Používané nástroje
-- [Haskell](https://www.haskell.org/) (+ [Emacs](https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md) nebo [EclipseFP](https://eclipsefp.github.io/))
+- [Haskell](https://www.haskell.org/) (+ [Emacs](https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md) nebo Leksah)
 - [Stack](http://docs.haskellstack.org/en/stable/README/)
-- [Haddock](https://wiki.haskell.org/Haddock), 
-- [Travis](https://travis-ci.org) (TODO!) + [Tasty](http://documentup.com/feuerbach/tasty)
+- [Haddock](https://wiki.haskell.org/Haddock),
+- [Travis](https://travis-ci.org) + [Tasty](http://documentup.com/feuerbach/tasty)
 - [Github](https://github.com/) ([web](https://fit-ivs.github.io), [repozitář](https://github.com/fit-ivs/calc))
 - [Trac](https://trac.edgewall.org/) ([projektový](https://trac.zarybnicky.com))
