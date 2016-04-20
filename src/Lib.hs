@@ -2,7 +2,8 @@
 module Lib
   ( parse
   , evaluate
-  , Expr
+  , render
+  , Expr(..)
   ) where
 
 import Control.Monad (void)
@@ -58,10 +59,10 @@ signedFloat :: Parser Double
 signedFloat = L.signed sc $ either fromIntegral id <$> L.lexeme sc L.number
 
 term :: Parser (Expr Double)
-term = parens expr <|> Number <$> signedFloat
+term = parens expression <|> Number <$> signedFloat
 
-expr :: Parser (Expr Double)
-expr = makeExprParser term operators
+expression :: Parser (Expr Double)
+expression = makeExprParser term operators
 
 -- | Parse an algebraic expression.
 --
@@ -72,7 +73,7 @@ expr = makeExprParser term operators
 -- >>> parse "1"
 -- Right (Number 1.0)
 parse :: String -> Either ParseError (Expr Double)
-parse = runParser expr ""
+parse = runParser expression ""
 
 
 evaluate :: RealFloat a => Expr a -> Maybe a
@@ -94,3 +95,18 @@ evaluate (Factorial x) = do
     if x' == fromInteger (round x')
         then Just $ fromInteger $ product [1..(round x' :: Integer)]
         else Nothing
+
+render :: (Show a, Eq a, Floating a) => Expr a -> String
+render (Number x) = show x
+render (Add a b)       = "(" ++ render a ++ ") + (" ++ render b ++ ")"
+render (Subtract a b)  = "(" ++ render a ++ ") - (" ++ render b ++ ")"
+render (Multiply a b)  = "(" ++ render a ++ ") * (" ++ render b ++ ")"
+render (Divide a b)    = "(" ++ render a ++ ") / (" ++ render b ++ ")"
+render (Modulus a b)   = "(" ++ render a ++ ") % (" ++ render b ++ ")"
+render (Exp a b)       = "(" ++ render a ++ ") ^ (" ++ render b ++ ")"
+render (Logarithm a b)
+    | a == Number 10      = "log (" ++ render b ++ ")"
+    | a == Number (exp 1) = "ln (" ++ render b ++ ")"
+    | otherwise           = "log_(" ++ render a ++ ") (" ++ render b ++ ")"
+render (Factorial e)   = "(" ++ render e ++ ")!"
+render (Negate e)      = "-(" ++ render e ++ ")"

@@ -1,23 +1,23 @@
+import Control.Monad (liftM2)
 import Test.Tasty
 import Test.Tasty.HUnit
---import Test.Tasty.SmallCheck
+import Test.Tasty.QuickCheck
 
-import Lib (evaluate, parse)
+import Lib (evaluate, parse, render, Expr(..))
 
 main :: IO ()
 main = defaultMain $ testGroup "all-tests" tests
 
 tests :: [TestTree]
 tests =
-  [ testGroup "SmallCheck" scTests
+  [ testGroup "QuickCheck" qcTests
   , testGroup "Unit tests" huTests
   ]
 
-scTests :: [TestTree]
-scTests = []
-  --[ testProperty "inc == succ" \n -> inc n == succ n
-  --, testProperty "inc . negate == negate . pred" \n inc (negate n) == negate (pred n)
-  --]
+qcTests :: [TestTree]
+qcTests =
+  [ testProperty "id == parse . show" prop_parse_render
+  ]
 
 huTests :: [TestTree]
 huTests =
@@ -70,3 +70,31 @@ case_negate = evaluate (fromRight $ parse "-6") @?= Just (-6)
 
 case_e :: Assertion
 case_e = evaluate (fromRight $ parse "e^1") @?= Just 2.718281828459045
+
+newtype Expression = Expression { getValue :: Expr Double }
+instance Arbitrary Expression where
+    arbitrary = sized expr
+        where
+          expr :: Int -> Gen Expression
+          expr 0 = fmap (Expression . Number . abs) arbitrary
+          expr n = oneof $ fmap (fmap Expression) [
+              fmap (Number . abs) arbitrary
+            , liftM2 Add (fmap getValue subexpr) (fmap getValue subexpr)
+            , liftM2 Subtract (fmap getValue subexpr) (fmap getValue subexpr)
+            , liftM2 Multiply (fmap getValue subexpr) (fmap getValue subexpr)
+            , liftM2 Divide (fmap getValue subexpr) (fmap getValue subexpr)
+            , liftM2 Modulus (fmap getValue subexpr) (fmap getValue subexpr)
+            , liftM2 Exp (fmap getValue subexpr) (fmap getValue subexpr)
+            , fmap (Logarithm (Number $ exp 1) . getValue) subexpr
+            , fmap (Logarithm (Number 10) . getValue) subexpr
+            , fmap (Factorial . getValue) subexpr
+            , fmap (Negate . getValue) subexpr ]
+              where subexpr = expr (n `div` 2)
+
+instance Show Expression where
+    show = show . getValue
+
+prop_parse_render :: Expression -> Bool
+prop_parse_render e = case parse (render (getValue e)) of
+    Left _ -> False
+    Right x -> x == getValue e
