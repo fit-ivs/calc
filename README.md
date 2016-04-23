@@ -19,7 +19,7 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 - [ ] uživatelská příručka v PDF
 - [ ] programová dokumentace (Doxygen apod.)
 - [ ] screenshot finální verze programu
-- [ ] testy (převážně mat. knihovny)
+- [x] testy (převážně mat. knihovny)
 - [ ] screenshot debuggeru/popis debugování
 - [ ] info o profilování
 - [ ] mockupy další verze kalkulačky
@@ -55,14 +55,15 @@ stack setup
 stack install
 ```
 Pro Windows:
-v MinGW64\_shell (NE v msys2_shell)
+*v MinGW64\_shell (NE v msys2_shell)*
 ```
 stack setup
 stack --skip-msys install
 ```
 
 ## Vývoj
-TODO - Inno/.deb distribution
+### Testy
+doctest + unittest + QuickCheck
 ```
 stack test
 ```
@@ -82,10 +83,15 @@ TODO - postup (Haddock, [graphmod](https://hackage.haskell.org/package/graphmod)
 stack haddock
 ```
 
+### Generování instalátorů
+TODO - nsis/.deb distribution
+
 ## Používané nástroje
-- [Haskell](https://www.haskell.org/) (+ [Emacs](https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md) nebo Leksah)
+- [Haskell](https://www.haskell.org/)
+- [Emacs](https://www.gnu.org/software/emacs/) ([haskell-mode](https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md)) nebo [Leksah](http://leksah.org/)
 - [Stack](http://docs.haskellstack.org/en/stable/README/)
 - [Haddock](https://wiki.haskell.org/Haddock),
-- [Travis](https://travis-ci.org) + [Tasty](http://documentup.com/feuerbach/tasty)
+- [Travis](https://travis-ci.org) 
+- [Tasty](http://documentup.com/feuerbach/tasty)
 - [Github](https://github.com/) ([web](https://fit-ivs.github.io), [repozitář](https://github.com/fit-ivs/calc))
 - [Trac](https://trac.edgewall.org/) ([projektový](https://trac.zarybnicky.com))
