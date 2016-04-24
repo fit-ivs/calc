@@ -18,7 +18,7 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 - [ ] instalátor a odinstalátor
 - [ ] uživatelská příručka v PDF
 - [ ] programová dokumentace (Doxygen apod.)
-- [ ] screenshot finální verze programu
+- [x] screenshot finální verze programu
 - [x] testy (převážně mat. knihovny)
 - [ ] screenshot debuggeru/popis debugování
 - [ ] info o profilování
@@ -58,7 +58,7 @@ Pro Windows:
 *v MinGW64\_shell (NE v msys2_shell)*
 ```
 stack setup
-stack --skip-msys install
+stack --skip-msys --ghc-options="-optl-mwindows" install
 ```
 
 ## Vývoj
@@ -80,7 +80,7 @@ stack bench
 ### Generování dokumentace
 TODO - postup (Haddock, [graphmod](https://hackage.haskell.org/package/graphmod), [hs2dot](https://hackage.haskell.org/package/hs2dot), [SourceGraph](https://hackage.haskell.org/package/SourceGraph), [graphtype](https://hackage.haskell.org/package/graphtype))
 ```
-stack haddock
+stack haddock --no-haddock-deps
 ```
 
 ### Generování instalátorů
