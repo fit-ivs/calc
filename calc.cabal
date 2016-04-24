@@ -40,6 +40,9 @@ executable calc-exe
   build-depends:     base >= 4.8 && < 5
                    , calc
                    , gtk
+                   , megaparsec >= 4.4.0 && < 4.5
+                   , transformers
+                   , text
 
 test-suite calc-test
   type:              exitcode-stdio-1.0
