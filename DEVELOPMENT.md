@@ -13,7 +13,7 @@
 - [x] repozitář včetně historie (commity minimálně každý večer!, pozor na přepisování práce ostatních, rebase vždy před push)
 - [x] Makefile (pack, clean, test, doc, [all])
 - [x] instalátor a odinstalátor
-- [ ] uživatelská příručka v PDF
+- [x] uživatelská příručka v PDF
 - [x] programová dokumentace (Doxygen apod.)
 - [x] screenshot finální verze programu
 - [x] testy (převážně mat. knihovny)
