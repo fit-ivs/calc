@@ -5,6 +5,8 @@ Týmový projekt v předmětu IVS, FIT VUT 2016.
 
 Jedná se o jednoduchou GUI kalkulačku, která podporuje operace +, -, *, /, !, %, log, ln, ^, e^x a závorky. Projekt je zaměřený převážně na procvičení týmové spolupráce, program samotný je téměř vedlejší. Více info k vlastnímu projektu je v [DEVELOPMENT.md](DEVELOPMENT.md).
 
+![screenshot](https://raw.githubusercontent.com/fit-ivs/calc/master/doc/screenshot.png "Screenshot")
+
 ## Instalace
 ### Binární distribuce
 Ve složce [bin/](https://github.com/fit-ivs/calc/tree/master/bin) je k dispozici instalační soubor pro Windows (64bit). Binární distribuce pro Linux k dispozici (zatím) není.
