@@ -53,15 +53,15 @@ operators :: [[Operator Parser (Expr Double)]]
 operators =
     [ [ Prefix (symbol "-" *> pure Negate)
       , Postfix (symbol "!" *> pure Factorial)]
+    , [ Prefix (symbol "ln" *> pure (Logarithm (Number $ exp 1)))
+      , Prefix (symbol "log" *> pure (Logarithm (Number 10)))]
     , [ InfixR (symbol "^" *> pure Exp)
       , Prefix (symbol "e" *> symbol "^" *> pure (Exp (Number $ exp 1)))]
     , [ InfixL (symbol "*" *> pure Multiply)
       , InfixL (symbol "/" *> pure Divide)
       , InfixL (symbol "%" *> pure Modulus)]
     , [ InfixL (symbol "+" *> pure Add)
-      , InfixL (symbol "-" *> pure Subtract)]
-    , [ Prefix (symbol "ln" *> pure (Logarithm (Number $ exp 1)))
-      , Prefix (symbol "log" *> pure (Logarithm (Number 10)))]]
+      , InfixL (symbol "-" *> pure Subtract)]]
 
 signedFloat :: Parser Double
 signedFloat = L.signed sc $ either fromIntegral id <$> L.lexeme sc L.number
