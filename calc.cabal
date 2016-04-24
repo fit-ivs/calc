@@ -39,6 +39,7 @@ executable calc-exe
   main-is:           Main.hs
   build-depends:     base >= 4.8 && < 5
                    , calc
+                   , file-embed
                    , gtk
                    , megaparsec >= 4.4.0 && < 4.5
                    , transformers

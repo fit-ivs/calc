@@ -12,6 +12,9 @@ packages:
 - pango-0.13.1.1
 - gtk-0.14.2
 
+ghc-options:
+    "*": -static
+
 # Packages to be pulled from upstream that are not in the resolver (e.g., acme-missiles-0.3)
 extra-deps:
 - megaparsec-4.4.0

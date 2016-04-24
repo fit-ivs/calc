@@ -1,8 +1,11 @@
+{-# LANGUAGE TemplateHaskell #-}
+
 module Main where
 
 import Control.Monad (guard)
 import Control.Monad.IO.Class (liftIO)
 import Data.Char (isAscii, isSymbol, isPunctuation)
+import Data.FileEmbed
 import Data.Foldable (forM_)
 import Data.IORef (IORef, newIORef, writeIORef, readIORef)
 import Data.Text (unpack)
@@ -15,11 +18,17 @@ main = do
     _ <- initGUI
     -- Create the builder, and load the UI file
     builder <- builderNew
-    builderAddFromFile builder "calc.glade"
-    rcParse "calc.rc"
+    builderAddFromString builder ($(embedStringFile "src-exe/calc.glade") :: String)
 
     mainLabel <- builderGetObject builder castToLabel "labelBig"
     sideLabel <- builderGetObject builder castToLabel "labelSmall"
+
+    -- Fix UTF-8 sqrt symbol
+    sqrtButton <- builderGetObject builder castToButton "buttonSqrt"
+    mChild <- binGetChild sqrtButton
+    case mChild of
+        Just child -> labelSetText (castToLabel child) "√x"
+        Nothing -> return ()
 
     -- Color EventBoxes (= workaround for button colors)
     delBox <- builderGetObject builder castToEventBox "boxDel"
@@ -41,6 +50,7 @@ main = do
 
     window <- builderGetObject builder castToWindow "window1"
     _ <- on window objectDestroy mainQuit
+    widgetModifyBg window StateNormal (Color 65535 65535 65535)
 
     _ <- on window keyPressEvent $ tryEvent $ do
         Just char <- eventKeyVal >>= (liftIO . keyvalToChar)
@@ -96,7 +106,7 @@ textButtonBindings =
     , ("buttonSciNot",append "*10^")
     , ("buttonExp2",  append "^2")
     , ("buttonInv",   append "^-1")
-    , ("buttonSqrt",  append "^-0.5")
+    , ("buttonSqrt",  append "^0.5")
     , ("buttonAdd",   append "+")
     , ("buttonSub",   append "-")
     , ("buttonMul",   append "*")
