@@ -17,7 +17,7 @@
 - [x] programová dokumentace (Doxygen apod.)
 - [x] screenshot finální verze programu
 - [x] testy (převážně mat. knihovny)
-- [ ] screenshot debuggeru/popis debugování
+- [x] screenshot debuggeru/popis debugování
 - [ ] info o profilování
 - [ ] mockupy další verze kalkulačky
 - [ ] plán práce (Gantt?) + záznam o odchylkách od něj
@@ -34,7 +34,20 @@ stack test
 ```
 
 ## Debugování
-TODO - postup ([info](https://wiki.haskell.org/Debugging))
+```
+stack exec ghci
+:l src/Lib.hs
+:break Lib 105
+evaluate (Divide (Number 1) (Number 0))
+:step
+:type x
+:print x
+:force x
+evaluate x
+:back
+:abandon
+:quit
+```
 
 ## Profilování
 TODO - postup ([wiki](https://wiki.haskell.org/Performance), [prof2dot](https://hackage.haskell.org/package/prof2dot), [Vacuum](https://thoughtpolice.github.io/vacuum/))
