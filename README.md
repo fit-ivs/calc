@@ -78,13 +78,12 @@ stack bench
 ```
 
 ### Generování dokumentace
-TODO - postup (Haddock, [graphmod](https://hackage.haskell.org/package/graphmod), [hs2dot](https://hackage.haskell.org/package/hs2dot), [SourceGraph](https://hackage.haskell.org/package/SourceGraph), [graphtype](https://hackage.haskell.org/package/graphtype))
 ```
 stack haddock --no-haddock-deps
 ```
 
 ### Generování instalátorů
-TODO - nsis/.deb distribution
+Pro vygenerování NSIS instalátoru je potřeba vygenerovat si .nsi soubor pomocí programu calc-nsis (z repozitáře, např. pomocí `stack install`), překopírovat calc-exe.exe z %APPDATA%\local\bin do src-nsis/ivs-calc.exe a knihovny .dll z instalačního adresáře MinGW64 do src-nsis/. Dále je potřeba stáhnout si [NSIS samotné](http://nsis.sourceforge.net/Main_Page) a přidat si instalační složku NSIS do PATH. Nakonec stačí spustit calc-nsis.exe v src-nsis/ a výsledkem je instalační soubor ivs-calc.exe.
 
 ## Používané nástroje
 - [Haskell](https://www.haskell.org/)
@@ -95,3 +94,4 @@ TODO - nsis/.deb distribution
 - [Tasty](http://documentup.com/feuerbach/tasty)
 - [Github](https://github.com/) ([web](https://fit-ivs.github.io), [repozitář](https://github.com/fit-ivs/calc))
 - [Trac](https://trac.edgewall.org/) ([projektový](https://trac.zarybnicky.com))
+- [NSIS](http://nsis.sourceforge.net/)
