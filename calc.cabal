@@ -45,6 +45,16 @@ executable calc-exe
                    , transformers
                    , text
 
+executable calc-nsis
+  default-language:  Haskell2010
+  ghc-options:       -Wall -Werror -O2 -Wall -threaded -rtsopts -with-rtsopts=-N
+  hs-source-dirs:    src-nsis
+  main-is:           Installer.hs
+  build-depends:     base >= 4.8 && < 5
+                   , nsis
+                   , directory
+                   , process
+
 test-suite calc-test
   type:              exitcode-stdio-1.0
   default-language:  Haskell2010
