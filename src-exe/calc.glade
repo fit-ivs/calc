@@ -477,7 +477,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="buttonExp">
+              <object class="GtkButton" id="buttonNatExp">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -485,7 +485,7 @@
                   <object class="GtkLabel" id="label3">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">x&lt;sup&gt;y&lt;/sup&gt;</property>
+                    <property name="label" translatable="yes">e&lt;sup&gt;x&lt;/sup&gt;</property>
                     <property name="use_markup">True</property>
                   </object>
                 </child>
@@ -496,7 +496,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="buttonExp2">
+              <object class="GtkButton" id="buttonExp">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
@@ -505,7 +505,7 @@
                   <object class="GtkLabel" id="label1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">x&lt;sup&gt;2&lt;/sup&gt;</property>
+                    <property name="label" translatable="yes">x&lt;sup&gt;y&lt;/sup&gt;</property>
                     <property name="use_markup">True</property>
                   </object>
                 </child>

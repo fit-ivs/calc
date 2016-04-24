@@ -104,7 +104,7 @@ textButtonBindings =
     , ("buttonMod",   append "%")
     , ("buttonExp",   append "^")
     , ("buttonSciNot",append "*10^")
-    , ("buttonExp2",  append "^2")
+    , ("buttonNatExp",  append "e^")
     , ("buttonInv",   append "^-1")
     , ("buttonSqrt",  append "^0.5")
     , ("buttonAdd",   append "+")
