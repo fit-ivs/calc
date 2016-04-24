@@ -15,9 +15,9 @@ FIT VUT 2016, předmět IVS, projekt č. 2
 ## Výstupy
 - [x] repozitář včetně historie (commity minimálně každý večer!, pozor na přepisování práce ostatních, rebase vždy před push)
 - [ ] Makefile (pack, clean, test, doc, [all])
-- [ ] instalátor a odinstalátor
+- [x] instalátor a odinstalátor
 - [ ] uživatelská příručka v PDF
-- [ ] programová dokumentace (Doxygen apod.)
+- [x] programová dokumentace (Doxygen apod.)
 - [x] screenshot finální verze programu
 - [x] testy (převážně mat. knihovny)
 - [ ] screenshot debuggeru/popis debugování
