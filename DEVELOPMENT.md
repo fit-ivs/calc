@@ -11,7 +11,7 @@
 
 ## Výstupy
 - [x] repozitář včetně historie (commity minimálně každý večer!, pozor na přepisování práce ostatních, rebase vždy před push)
-- [ ] Makefile (pack, clean, test, doc, [all])
+- [x] Makefile (pack, clean, test, doc, [all])
 - [x] instalátor a odinstalátor
 - [ ] uživatelská příručka v PDF
 - [x] programová dokumentace (Doxygen apod.)
