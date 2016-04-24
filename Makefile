@@ -3,13 +3,13 @@ all:
 install:
 	stack install
 pack: clean
-	zip -r ../calc.zip .
+	zip -r ../xzaryb00_xzdene00_xrycto00.zip ../xzaryb00_xzdene00_xrycto00
 clean:
-	rm -r .stack-work
-	rm -r deps/gio-0.13.1.1/.stack-work
-	rm -r deps/glib-0.13.2.2/.stack-work
-	rm -r deps/gtk-0.14.2/.stack-work
-	rm -r deps/pango-0.13.1.1/.stack-work
+	rm -rf .stack-work
+	rm -rf deps/gio-0.13.1.1/.stack-work
+	rm -rf deps/glib-0.13.2.2/.stack-work
+	rm -rf deps/gtk-0.14.2/.stack-work
+	rm -rf deps/pango-0.13.1.1/.stack-work
 test:
 	stack test calc
 doc:
