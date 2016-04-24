@@ -7,10 +7,10 @@ resolver: lts-5.11
 # Local packages, usually specified by relative directory name
 packages:
 - '.'
-- gio-0.13.1.1
-- glib-0.13.2.2
-- pango-0.13.1.1
-- gtk-0.14.2
+- deps/gio-0.13.1.1
+- deps/glib-0.13.2.2
+- deps/pango-0.13.1.1
+- deps/gtk-0.14.2
 
 ghc-options:
     "*": -static
