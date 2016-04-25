@@ -18,9 +18,10 @@
 - [x] screenshot finální verze programu
 - [x] testy (převážně mat. knihovny)
 - [x] screenshot debuggeru/popis debugování
-- [ ] info o profilování
-- [ ] mockupy další verze kalkulačky
+- [x] info o profilování
+- [x] mockupy další verze kalkulačky
 - [ ] plán práce (Gantt?) + záznam o odchylkách od něj
+- [ ] vzájemné hodnocení kvality práce
 
 ## Požadavky na program
 - rozdělení programu na matematickou knihovnu a GUI
@@ -50,10 +51,16 @@ evaluate x
 ```
 
 ## Profilování
-TODO - postup ([wiki](https://wiki.haskell.org/Performance), [prof2dot](https://hackage.haskell.org/package/prof2dot), [Vacuum](https://thoughtpolice.github.io/vacuum/))
+###Benchmarky:
 ```
 stack bench
 ```
+###Profilování (cost centers):
+```
+stack install --library-profiling --executable-profiling
+calc-exe +RTS -px -RTS
+```
+Výsledek profilování bude v souboru calc-exe.prof s údaji o časové a 'paměťové' (alokační) náročnosti.
 
 ## Generování dokumentace
 ```
