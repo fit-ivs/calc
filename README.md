@@ -43,14 +43,14 @@ cd calc/
 stack setup
 stack --skip-msys install
 ```
-¨
+
 **Pozor:** na Windows je nutné do %APPDATA%/local/bin zkopírovat knihovny GTK (při instalaci MSYS2 do výchozího umístění z c:\msys64\mingw64\bin\).
 
 ## Používané nástroje
 - [Haskell](https://www.haskell.org/)
 - [Emacs](https://www.gnu.org/software/emacs/) ([haskell-mode](https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md)) nebo [Leksah](http://leksah.org/)
 - [Stack](http://docs.haskellstack.org/en/stable/README/)
-- [Haddock](https://wiki.haskell.org/Haddock),
+- [Haddock](https://wiki.haskell.org/Haddock)
 - [Travis](https://travis-ci.org)
 - [Trac](https://trac.edgewall.org/) ([projektový](https://trac.zarybnicky.com))
 - [NSIS](http://nsis.sourceforge.net/)
