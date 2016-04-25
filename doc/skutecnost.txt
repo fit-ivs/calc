@@ -1,0 +1,12 @@
+Původně stanovené termíny (tak, jak byly odevzdány) byly následující:
+- 10. 4. - deadline pro program
+- 17. 4. - deadline pro dokumentaci a instalátor
+
+Odchylka byla poměrně velká, program jsem dokončoval v sobotu 23. večer a
+dokumentaci a zbytek v neděli 24. Hlavní problém byl to, že jsme sice měli
+stanovené termíny pro jednotlivé etapy projektu, ale ne pro jednotlivé úkoly,
+takže jsme pracovali na principu "až to bude, tak to bude". U takového malého
+projektu to naštěstí problém není, program samotný byl +- projekt na jedno
+odpoledne a zbytek požadavků projekt na jeden den, u většiho projektu by bylo
+vhodné zavést buď termíny úkolů, nebo aspoň obden vést "SCRUM" schůzky (co jsme
+udělali, co uděláme).

@@ -1,0 +1,3 @@
+xzdene00 3 (evaluátor, grafický návrh)
+xrycto00 3 (testy, debugování)
+xzaryb00 5 (zbytek)
